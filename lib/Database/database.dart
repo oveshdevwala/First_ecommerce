@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-class uicolor{
-  static Color myorange =Color(0xffff660e);
-  static Color trans=Colors.transparent;
+
+class uicolor {
+  static Color myorange = Color(0xffff660e);
+  static Color trans = Colors.transparent;
 }
+
 List<dynamic> CatagoryList = [
   {'image': 'assets/icons/c6.jpg', "name": 'Shoes'},
   {'image': 'assets/icons/c7.png', "name": 'Gadgets'},
@@ -17,7 +19,71 @@ List<dynamic> CatagoryList = [
   {'image': 'assets/icons/c5.jpg', "name": 'Jewelry'},
   {'image': 'assets/icons/c2.jpg', "name": "Men's\n Fashion"},
 ];
+// Navigator.push(context, MaterialPageRoute(
+//                 builder: (context) {
+//                   return ProductScreen(
+//                     cindex: index,
+//                     productprice: Productgrid[index]['price'],
+//                     productimage: Productgrid[index]['image'],
+//                     productname: Productgrid[index]['title'],
+//                   );
+//                 },
+//               ));
 
+/* // detailsButtons(),
+                        // SizedBox(
+                        //   height: 40,
+                        //   child: DefaultTabController(
+                        //     length: 3,
+                        //     initialIndex: 0,
+                        //     child: TabBar(
+                        //         indicatorColor: uicolor.myorange,
+                        //         indicatorSize: TabBarIndicatorSize.tab,
+                        //         unselectedLabelColor: Colors.black,
+                        //         onTap: (value) {
+                        //           detailebtvalue = value;
+                        //         },
+                        //         controller: TabController(
+                        //             length: 3, vsync: this, initialIndex: 0),
+                        //         indicator: BoxDecoration(
+                        //             color: uicolor.myorange,
+                        //             borderRadius: BorderRadius.circular(20)),
+                        //         tabs: [
+                        //           Tab(text: 'Discription'),
+                        //           Tab(text: 'Specification'),
+                        //           Tab(text: 'Reviews')
+                        //         ]),
+                        //   ),
+                        // ),
+                        // TabBarView(children: [
+                        //   Text(
+                        //     discription,
+                        //     style: TextStyle(
+                        //       color: Colors.grey,
+                        //       wordSpacing: 2,
+                        //       fontSize: 15,
+                        //     ),
+                        //     textAlign: TextAlign.justify,
+                        //   ),
+                        //   Text(
+                        //     specification,
+                        //     style: TextStyle(
+                        //       color: Colors.grey,
+                        //       wordSpacing: 2,
+                        //       fontSize: 15,
+                        //     ),
+                        //     textAlign: TextAlign.justify,
+                        //   ),
+                        //   Text(
+                        //     reviews,
+                        //     style: TextStyle(
+                        //       color: Colors.grey,
+                        //       wordSpacing: 2,
+                        //       fontSize: 15,
+                        //     ),
+                        //     textAlign: TextAlign.justify,
+                        //   ),
+                        // ]),*/
 var discription =
     'Lorem ipsum dolor sit amet placerat, consectetur adipiscing elit in he surrounding text element of the product description text element of the product description text element of the product description text element of the product description text element of text element of the product description text element of the product description text element of the product description text element oftext element of the product description text element of the product description text element of the product description text element of ';
 var specification =

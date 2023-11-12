@@ -1,9 +1,8 @@
-// ignore_for_file: must_be_immutable
-
 import 'package:ecommerce/Database/database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class ProductScreen extends StatefulWidget {
   ProductScreen(
       {super.key,
@@ -51,7 +50,7 @@ class _ProductScreenState extends State<ProductScreen> {
                     height: 300,
                     width: double.infinity,
                     decoration: BoxDecoration(
-                        color: Color(0xfff5f5f5),
+                        // color: Color(0xfff5f5f5),
                         image: DecorationImage(
                             image: AssetImage(widget.productimage))),
                   ),
@@ -413,13 +412,11 @@ class detailText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      detailebtvalue == 1
+      detailebtvalue == 0
           ? discription
-          : detailebtvalue == 2
+          : detailebtvalue == 1
               ? specification
-              : detailebtvalue == 3
-                  ? reviews
-                  : discription,
+              : reviews,
       style: TextStyle(
         color: Colors.grey,
         wordSpacing: 2,
