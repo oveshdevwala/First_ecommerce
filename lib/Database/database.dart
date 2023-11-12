@@ -1,7 +1,8 @@
-
-
 import 'package:flutter/material.dart';
-
+class uicolor{
+  static Color myorange =Color(0xffff660e);
+  static Color trans=Colors.transparent;
+}
 List<dynamic> CatagoryList = [
   {'image': 'assets/icons/c6.jpg', "name": 'Shoes'},
   {'image': 'assets/icons/c7.png', "name": 'Gadgets'},
@@ -16,8 +17,7 @@ List<dynamic> CatagoryList = [
   {'image': 'assets/icons/c5.jpg', "name": 'Jewelry'},
   {'image': 'assets/icons/c2.jpg', "name": "Men's\n Fashion"},
 ];
-var cartItem = 1;
-var detailebtvalue = 1;
+
 var discription =
     'Lorem ipsum dolor sit amet placerat, consectetur adipiscing elit in he surrounding text element of the product description text element of the product description text element of the product description text element of the product description text element of text element of the product description text element of the product description text element of the product description text element oftext element of the product description text element of the product description text element of the product description text element of ';
 var specification =

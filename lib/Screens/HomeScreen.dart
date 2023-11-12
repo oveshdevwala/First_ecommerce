@@ -162,16 +162,18 @@ class product_grid extends StatelessWidget {
         itemBuilder: (context, index) {
           var grididnex = Productgrid[index]['color'];
           return InkWell(
-             onTap: () {
-        Navigator.push(context, MaterialPageRoute(
-          builder: (context) {
-            return ProductScreen(
-productprice:Productgrid[index]['price'],
-productimage:Productgrid[index]['image'] ,productname:Productgrid[index]['title'],
-            );
-          },
-        ));
-      },
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) {
+                  return ProductScreen(
+                    cindex: index,
+                    productprice: Productgrid[index]['price'],
+                    productimage: Productgrid[index]['image'],
+                    productname: Productgrid[index]['title'],
+                  );
+                },
+              ));
+            },
             child: Container(
               decoration: BoxDecoration(
                   color: Color.fromARGB(255, 236, 231, 231),
@@ -207,7 +209,10 @@ productimage:Productgrid[index]['image'] ,productname:Productgrid[index]['title'
                             SizedBox(height: 20),
                             Container(
                               height: 140,
-                              child: Image.asset(Productgrid[index]['image']),
+                              child: Hero(
+                                  tag: 'image$index',
+                                  child:
+                                      Image.asset(Productgrid[index]['image'])),
                             ),
                           ],
                         ),

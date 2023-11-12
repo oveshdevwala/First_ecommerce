@@ -5,12 +5,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ProductScreen extends StatefulWidget {
-  ProductScreen({
-    super.key,
-    required this.productimage,
-    required this.productprice,
-    required this.productname,
-  });
+  ProductScreen(
+      {super.key,
+      required this.productimage,
+      required this.productprice,
+      required this.productname,
+      required this.cindex});
+  var cindex;
   var productname;
   var productprice;
   var productimage;
@@ -24,12 +25,14 @@ var specification =
     'Lorem ipsum dolor sit amet, consectetur adip occurence temp am  e justo in fac elementum in fac element   aliquet   in fac element aliquet in fac element aliquet in fac element aliquet in fac element aliqu   et aliquet in  fac element aliquet in fac element aliquet in fac element aliqu et al issuer in fac element aliquet in fac element aliquet in fac element aliqu';
 var reviews =
     'Love this plugin! Does exactly what it is supposed to do and so far without any real issues. (You might want to review some Dummy Text generation which contains words and even sentences with a meaning and that should not suppose to happen)';
+var cartItem = 1;
+var detailebtvalue = 0;
 
 class _ProductScreenState extends State<ProductScreen> {
-  var buttonbgColors = Colors.white.withOpacity(0);
+  var buttonbgColors = Colors.transparent;
   var buttontextColors = Colors.black;
-  var cartItem = 1;
-  var detailebtvalue = 1;
+  // var cartItem = 1;
+  // var detailebtvalue = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -42,13 +45,16 @@ class _ProductScreenState extends State<ProductScreen> {
           SingleChildScrollView(
             child: Column(
               children: [
-                Container(
-                  height: 300,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      color: Color(0xfff5f5f5),
-                      image: DecorationImage(
-                          image: AssetImage(widget.productimage))),
+                Hero(
+                  tag: 'image${widget.cindex}',
+                  child: Container(
+                    height: 300,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                        color: Color(0xfff5f5f5),
+                        image: DecorationImage(
+                            image: AssetImage(widget.productimage))),
+                  ),
                 ),
                 Align(
                   alignment: Alignment.bottomCenter,
@@ -171,18 +177,17 @@ class _ProductScreenState extends State<ProductScreen> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            ElevatedButton(
-                style: ElevatedButton.styleFrom(
+            TextButton(
+                style: TextButton.styleFrom(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)),
-                    backgroundColor: buttonbgColors,
-                    foregroundColor: buttontextColors),
+                    backgroundColor:
+                        detailebtvalue == 1 ? uicolor.myorange : uicolor.trans,
+                    foregroundColor:
+                        detailebtvalue == 1 ? Colors.white : Colors.black),
                 onPressed: () {
-                  buttonbgColors = Color(0xffff660e);
-                  buttontextColors = Colors.white;
-                  setState(() {
-                    detailebtvalue = 1;
-                  });
+                  detailebtvalue = 1;
+                  setState(() {});
                 },
                 child: Padding(
                   padding:
@@ -191,10 +196,18 @@ class _ProductScreenState extends State<ProductScreen> {
                 )),
             TextButton(
                 style: TextButton.styleFrom(
-                  foregroundColor: Colors.black,
-                ),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)),
+                    // foregroundColor: Colors.black,
+                    backgroundColor:
+                        detailebtvalue == 2 ? uicolor.myorange : uicolor.trans,
+                    foregroundColor:
+                        detailebtvalue == 2 ? Colors.white : Colors.black),
                 onPressed: () {
                   detailebtvalue = 2;
+                  buttonbgColors = Color(0xffff660e);
+                  buttontextColors = Colors.white;
+
                   setState(() {});
                 },
                 child: Padding(
@@ -207,9 +220,14 @@ class _ProductScreenState extends State<ProductScreen> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)),
                     // backgroundColor: Color(0xffff660e),
-                    foregroundColor: Colors.black),
+                    backgroundColor:
+                        detailebtvalue == 3 ? uicolor.myorange : uicolor.trans,
+                    foregroundColor:
+                        detailebtvalue == 3 ? Colors.white : Colors.black),
                 onPressed: () {
                   detailebtvalue = 3;
+                  buttontextColors = Colors.white;
+                  buttonbgColors = Color(0xffff660e);
                   setState(() {});
                 },
                 child: Padding(
