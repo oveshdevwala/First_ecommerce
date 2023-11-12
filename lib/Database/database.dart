@@ -1,4 +1,4 @@
-import 'dart:async';
+
 
 import 'package:flutter/material.dart';
 
@@ -16,7 +16,6 @@ List<dynamic> CatagoryList = [
   {'image': 'assets/icons/c5.jpg', "name": 'Jewelry'},
   {'image': 'assets/icons/c2.jpg', "name": "Men's\n Fashion"},
 ];
-
 var cartItem = 1;
 var detailebtvalue = 1;
 var discription =
@@ -70,7 +69,7 @@ List<dynamic> Productgrid = [
   },
   {
     'title': 'Headphones',
-    'image': 'assets/headphones2/hp1.png',
+    'image': 'assets/headphones2/hp4.png',
     'price': '120.00',
     'color': [Colors.black, Colors.blue, Colors.orange],
     'colorCount': '+4'

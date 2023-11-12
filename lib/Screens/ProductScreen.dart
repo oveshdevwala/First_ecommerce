@@ -1,23 +1,41 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:ecommerce/Database/database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ProductScreen extends StatefulWidget {
-  const ProductScreen({super.key});
-
+  ProductScreen({
+    super.key,
+    required this.productimage,
+    required this.productprice,
+    required this.productname,
+  });
+  var productname;
+  var productprice;
+  var productimage;
   @override
   State<ProductScreen> createState() => _ProductScreenState();
 }
+
+var discription =
+    'Lorem ipsum dolor sit amet placerat, consectetur adipiscing elit in he surrounding text element of the product description text element of the product description text element of the product description text element of the product description text element of text element of the product description text element of the product description text element of the product description text element oftext element of the product description text element of the product description text element of the product description text element of ';
+var specification =
+    'Lorem ipsum dolor sit amet, consectetur adip occurence temp am  e justo in fac elementum in fac element   aliquet   in fac element aliquet in fac element aliquet in fac element aliquet in fac element aliqu   et aliquet in  fac element aliquet in fac element aliquet in fac element aliqu et al issuer in fac element aliquet in fac element aliquet in fac element aliqu';
+var reviews =
+    'Love this plugin! Does exactly what it is supposed to do and so far without any real issues. (You might want to review some Dummy Text generation which contains words and even sentences with a meaning and that should not suppose to happen)';
 
 class _ProductScreenState extends State<ProductScreen> {
   var buttonbgColors = Colors.white.withOpacity(0);
   var buttontextColors = Colors.black;
   var cartItem = 1;
   var detailebtvalue = 1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      // backgroundColor: Colors.white,
+      backgroundColor: Color(0xfff5f5f5),
       appBar: productacreenAppbar(),
       body: Stack(
         children: [
@@ -30,7 +48,7 @@ class _ProductScreenState extends State<ProductScreen> {
                   decoration: BoxDecoration(
                       color: Color(0xfff5f5f5),
                       image: DecorationImage(
-                          image: AssetImage(Productgrid[0]['image']))),
+                          image: AssetImage(widget.productimage))),
                 ),
                 Align(
                   alignment: Alignment.bottomCenter,
@@ -47,6 +65,7 @@ class _ProductScreenState extends State<ProductScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         productTitle(),
+                        SizedBox(height: 5),
                         productPrice(),
                         reviewRow(),
                         ColorTitle(),
@@ -250,15 +269,15 @@ class _ProductScreenState extends State<ProductScreen> {
 
   Text productPrice() {
     return Text(
-      '\$520.00',
+      '\$${widget.productprice}',
       style: TextStyle(
-          fontSize: 25, fontWeight: FontWeight.bold, color: Colors.black),
+          fontSize: 21, fontWeight: FontWeight.bold, color: Colors.black),
     );
   }
 
   Text productTitle() {
     return Text(
-      'Wireless Headphone',
+      widget.productname,
       style: TextStyle(
           fontSize: 25, fontWeight: FontWeight.bold, color: Colors.black),
     );
@@ -330,10 +349,15 @@ class _ProductScreenState extends State<ProductScreen> {
         child: CircleAvatar(
           radius: 10,
           backgroundColor: Colors.white,
-          child: Icon(
-            Icons.arrow_back_ios_outlined,
-            color: Colors.black,
-            size: 17,
+          child: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(
+              Icons.arrow_back_ios_outlined,
+              color: Colors.black,
+              size: 17,
+            ),
           ),
         ),
       ),

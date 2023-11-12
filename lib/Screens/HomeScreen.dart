@@ -1,4 +1,5 @@
 import 'package:ecommerce/Database/database.dart';
+import 'package:ecommerce/Screens/ProductScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -160,113 +161,125 @@ class product_grid extends StatelessWidget {
         itemCount: Productgrid.length,
         itemBuilder: (context, index) {
           var grididnex = Productgrid[index]['color'];
-          return Container(
-            decoration: BoxDecoration(
-                color: Color.fromARGB(255, 236, 231, 231),
-                borderRadius: BorderRadius.circular(25)),
-            child: Column(
-              children: [
-                Stack(
-                  children: [
-                    Align(
-                      alignment: Alignment.topRight,
-                      child: Container(
-                        height: 40,
-                        width: 40,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(25),
-                              bottomLeft: Radius.circular(10)),
-                          color: Color(0xffff660e),
-                        ),
-                        child: IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            CupertinoIcons.heart,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment.center,
-                      child: Column(
-                        children: [
-                          SizedBox(height: 20),
-                          Container(
-                            height: 140,
-                            child: Image.asset(Productgrid[index]['image']),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Text(
-                      Productgrid[index]['title'],
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                          fontSize: 17,
-                          color: Colors.black,
-                          fontWeight: FontWeight.w600,
-                          overflow: TextOverflow.ellipsis),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          return InkWell(
+             onTap: () {
+        Navigator.push(context, MaterialPageRoute(
+          builder: (context) {
+            return ProductScreen(
+productprice:Productgrid[index]['price'],
+productimage:Productgrid[index]['image'] ,productname:Productgrid[index]['title'],
+            );
+          },
+        ));
+      },
+            child: Container(
+              decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 236, 231, 231),
+                  borderRadius: BorderRadius.circular(25)),
+              child: Column(
+                children: [
+                  Stack(
                     children: [
-                      Text(
-                        '\$${Productgrid[index]['price']}',
-                        style: TextStyle(
-                            fontWeight: FontWeight.w700,
-                            color: Colors.black,
-                            fontSize: 18),
-                      ),
-                      Container(
-                        width: 75,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              padding: EdgeInsets.all(2),
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.white,
-                                  border: Border.all(color: Colors.black)),
-                              child: CircleAvatar(
-                                  radius: 7, backgroundColor: grididnex[0]),
+                      Align(
+                        alignment: Alignment.topRight,
+                        child: Container(
+                          height: 40,
+                          width: 40,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(25),
+                                bottomLeft: Radius.circular(10)),
+                            color: Color(0xffff660e),
+                          ),
+                          child: IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              CupertinoIcons.heart,
+                              color: Colors.white,
                             ),
-                            CircleAvatar(
-                                radius: 7, backgroundColor: grididnex[1]),
-                            CircleAvatar(
-                                radius: 7, backgroundColor: grididnex[2]),
+                          ),
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment.center,
+                        child: Column(
+                          children: [
+                            SizedBox(height: 20),
                             Container(
-                              height: 16,
-                              width: 16,
-                              child: Center(
-                                child: Text(
-                                  "${Productgrid[index]['colorCount']}",
-                                  style: TextStyle(fontSize: 9),
-                                ),
-                              ),
-                              decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.black),
-                                  shape: BoxShape.circle),
-                            )
+                              height: 140,
+                              child: Image.asset(Productgrid[index]['image']),
+                            ),
                           ],
                         ),
-                      )
+                      ),
                     ],
                   ),
-                )
-              ],
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Text(
+                        Productgrid[index]['title'],
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                            fontSize: 17,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w600,
+                            overflow: TextOverflow.ellipsis),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          '\$${Productgrid[index]['price']}',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w700,
+                              color: Colors.black,
+                              fontSize: 18),
+                        ),
+                        Container(
+                          width: 75,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                padding: EdgeInsets.all(2),
+                                decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Colors.white,
+                                    border: Border.all(color: Colors.black)),
+                                child: CircleAvatar(
+                                    radius: 7, backgroundColor: grididnex[0]),
+                              ),
+                              CircleAvatar(
+                                  radius: 7, backgroundColor: grididnex[1]),
+                              CircleAvatar(
+                                  radius: 7, backgroundColor: grididnex[2]),
+                              Container(
+                                height: 16,
+                                width: 16,
+                                child: Center(
+                                  child: Text(
+                                    "${Productgrid[index]['colorCount']}",
+                                    style: TextStyle(fontSize: 9),
+                                  ),
+                                ),
+                                decoration: BoxDecoration(
+                                    border: Border.all(color: Colors.black),
+                                    shape: BoxShape.circle),
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
           );
         },
