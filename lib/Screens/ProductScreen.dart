@@ -27,11 +27,28 @@ var reviews =
 var cartItem = 1;
 var detailebtvalue = 0;
 
-class _ProductScreenState extends State<ProductScreen> {
+class _ProductScreenState extends State<ProductScreen>
+    with TickerProviderStateMixin {
   var buttonbgColors = Colors.transparent;
   var buttontextColors = Colors.black;
   // var cartItem = 1;
   // var detailebtvalue = 0;
+  late TabController mdetailcontroller;
+  @override
+  void initState() {
+    super.initState();
+    mdetailcontroller = TabController(length: 3, vsync: this);
+    mdetailcontroller.addListener(() {
+      if (mdetailcontroller.index == 0) {
+        detailebtvalue = 1;
+      } else if (mdetailcontroller.index == 1) {
+        detailebtvalue = 2;
+      } else if (mdetailcontroller.index == 2) {
+        detailebtvalue = 3;
+      }
+      setState(() {});
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -75,12 +92,16 @@ class _ProductScreenState extends State<ProductScreen> {
                         reviewRow(),
                         ColorTitle(),
                         SizedBox(height: 10),
-                        ColorsVarients(),
+                        ColorsVarients(mindex: widget.cindex),
                         SizedBox(height: 10),
-                        detailsButtons(),
+                        // detailsButtons(),
+                        detailtab(),
                         SizedBox(height: 10),
-                        detailText(),
-                        SizedBox(height: 300),
+                        detailtabbar(),
+
+                        SizedBox(height: 10),
+                        // detailText(),
+                        SizedBox(height: 100),
                       ],
                     ),
                   ),
@@ -97,6 +118,69 @@ class _ProductScreenState extends State<ProductScreen> {
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+    );
+  }
+
+  Container detailtabbar() {
+    return Container(
+      height: 300,
+      width: double.infinity,
+      child: TabBarView(controller: mdetailcontroller, children: [
+        Text(
+          discription,
+          style: TextStyle(
+            color: Colors.grey,
+            wordSpacing: 2,
+            fontSize: 15,
+          ),
+          textAlign: TextAlign.justify,
+        ),
+        Text(
+          specification,
+          style: TextStyle(
+            color: Colors.grey,
+            wordSpacing: 2,
+            fontSize: 15,
+          ),
+          textAlign: TextAlign.justify,
+        ),
+        Text(
+          reviews,
+          style: TextStyle(
+            color: Colors.grey,
+            wordSpacing: 2,
+            fontSize: 15,
+          ),
+          textAlign: TextAlign.justify,
+        ),
+      ]),
+    );
+  }
+
+  DefaultTabController detailtab() {
+    return DefaultTabController(
+      length: 3,
+      child: SizedBox(
+        height: 40,
+        // width: 300,
+        child: TabBar(
+            indicatorColor: uicolor.myorange,
+            indicatorSize: TabBarIndicatorSize.tab,
+            unselectedLabelColor: Colors.black,
+            dividerColor: Colors.black,
+            onTap: (value) {
+              detailebtvalue = value;
+            },
+            controller: mdetailcontroller,
+            indicator: BoxDecoration(
+                color: uicolor.myorange,
+                borderRadius: BorderRadius.circular(20)),
+            tabs: [
+              Tab(text: 'Discription'),
+              Tab(text: 'Specification'),
+              Tab(text: 'Reviews')
+            ]),
+      ),
     );
   }
 
@@ -248,7 +332,7 @@ class _ProductScreenState extends State<ProductScreen> {
     );
   }
 
-  Container ColorsVarients() {
+  Container ColorsVarients({required int mindex}) {
     return Container(
       width: 250,
       child: Row(
@@ -256,7 +340,7 @@ class _ProductScreenState extends State<ProductScreen> {
         children: [
           CircleAvatar(
             radius: 20,
-            backgroundColor: Color(0xff911e31),
+            backgroundColor: Productgrid[mindex]['color'][0],
           ),
           Container(
               padding: EdgeInsets.all(3),
@@ -265,19 +349,19 @@ class _ProductScreenState extends State<ProductScreen> {
                   border: Border.all(color: Colors.black)),
               child: CircleAvatar(
                 radius: 20,
-                backgroundColor: Colors.black,
+                backgroundColor: Productgrid[mindex]['color'][1],
               )),
           CircleAvatar(
             radius: 20,
-            backgroundColor: Color(0xff1d4491),
+            backgroundColor: Productgrid[mindex]['color'][2],
           ),
           CircleAvatar(
             radius: 20,
-            backgroundColor: Color(0xff91471c),
+            backgroundColor: Productgrid[mindex]['color'][3],
           ),
           CircleAvatar(
             radius: 20,
-            backgroundColor: Colors.grey,
+            backgroundColor: Colors.teal,
           ),
         ],
       ),
