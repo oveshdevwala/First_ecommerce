@@ -1,4 +1,5 @@
-import 'package:ecommerce/Screens/homeScreen.dart';
+import 'package:ecommerce/Screens/ProductScreen.dart';
+// import 'package:ecommerce/Screens/homeScreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,6 +11,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: HomeScreen(),);
+    return MaterialApp(home: ProductScreen(),);
   }
 }
