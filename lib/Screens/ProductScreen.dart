@@ -1,4 +1,5 @@
 import 'package:ecommerce/Database/database.dart';
+import 'package:ecommerce/Screens/CartScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,7 @@ class ProductScreen extends StatefulWidget {
 }
 
 var discription =
-    'Lorem ipsum dolor sit amet placerat, consectetur adipiscing elit in he surrounding text element of the product description text element of the product description text element of the product description text element of the product description text element of text element of the product description text element of the product description text element of the product description text element oftext element of the product description text element of the product description text element of the product description text element of ';
+    'Lorem ipsum dolor sit amet placerat, consectetur adipiscing elit in he surrounding text element of the product description text element of the product description text element of the product description text element of the product description text element of the product description text element oftext element of the product description text element of the product description text element of the product description text element of ';
 var specification =
     'Lorem ipsum dolor sit amet, consectetur adip occurence temp am  e justo in fac elementum in fac element   aliquet   in fac element aliquet in fac element aliquet in fac element aliquet in fac element aliqu   et aliquet in  fac element aliquet in fac element aliquet in fac element aliqu et al issuer in fac element aliquet in fac element aliquet in fac element aliqu';
 var reviews =
@@ -98,7 +99,6 @@ class _ProductScreenState extends State<ProductScreen>
                         detailtab(),
                         SizedBox(height: 10),
                         detailtabbar(),
-
                         SizedBox(height: 10),
                         // detailText(),
                         SizedBox(height: 100),
@@ -113,7 +113,9 @@ class _ProductScreenState extends State<ProductScreen>
             margin: EdgeInsets.only(bottom: 15),
             child: Align(
                 alignment: Alignment.bottomCenter,
-                child: flottingCartSection()),
+                child: Hero(
+                    tag: "cart${Productgrid[widget.cindex]['title']}",
+                    child: flottingCartSection())),
           ),
         ],
       ),
@@ -236,8 +238,16 @@ class _ProductScreenState extends State<ProductScreen>
           ),
           ElevatedButton(
               onPressed: () {
-
+                CartItem.add({
+                  'cartcount': Productgrid[widget.cindex]['cartcount'],
+                  'title': Productgrid[widget.cindex]['title'],
+                  'price': Productgrid[widget.cindex]['price'],
+                  'color': Productgrid[widget.cindex]['color'][0],
+                  'image': Productgrid[widget.cindex]['image'],
+                });
                 
+
+                setState(() {});
               },
               style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
