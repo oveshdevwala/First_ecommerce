@@ -390,16 +390,21 @@ class catagory_list extends StatelessWidget {
         itemBuilder: (context, index) {
           return Column(
             children: [
-              Container(
-                height: 60,
-                width: 60,
-                margin: EdgeInsets.all(5),
-                decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.yellow,
-                    image: DecorationImage(
-                        image: AssetImage(CatagoryList[index]['image']),
-                        fit: BoxFit.cover)),
+              InkWell(
+                onTap: (){
+                  
+                },
+                child: Container(
+                  height: 60,
+                  width: 60,
+                  margin: EdgeInsets.all(5),
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.yellow,
+                      image: DecorationImage(
+                          image: AssetImage(CatagoryList[index]['image']),
+                          fit: BoxFit.cover)),
+                ),
               ),
               Text(
                 CatagoryList[index]['name'],

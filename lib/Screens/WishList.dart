@@ -15,16 +15,45 @@ class WishListScreen extends StatefulWidget {
 class _WishListScreenState extends State<WishListScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: centerFlotingActionbar(),
-        bottomNavigationBar: bottomNavigationBar(),
-      appBar: cartappbar(context),
+    return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: centerFlotingActionbar(),
+      bottomNavigationBar: bottomNavigationBar(),
+      appBar: AppBar(
+        backgroundColor: uicolor.themeGrey,
+        elevation: 0,
+        leadingWidth: 0,
+        foregroundColor: Colors.black,
+        leading: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: CircleAvatar(
+            radius: 10,
+            backgroundColor: Colors.white,
+          ),
+        ),
+        title: Center(
+            child: Text(
+          'WishLIst',
+          style: TextStyle(
+            fontSize: 25,
+          ),
+        )),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(15),
         child: SingleChildScrollView(
           child: Column(
             children: [
-              product_grid_title(),
+              Center(
+                child: Text(
+                  'Product You Liked',
+                  style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey),
+                ),
+              ),
+              // product_grid_title(),
               SizedBox(height: 10),
               product_grid_wish()
             ],
