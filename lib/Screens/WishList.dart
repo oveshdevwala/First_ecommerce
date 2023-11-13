@@ -15,30 +15,11 @@ class WishListScreen extends StatefulWidget {
 class _WishListScreenState extends State<WishListScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold( appBar: wishlistAppbar(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: centerFlotingActionbar(),
       bottomNavigationBar: bottomNavigationBar(),
-      appBar: AppBar(
-        backgroundColor: uicolor.themeGrey,
-        elevation: 0,
-        leadingWidth: 0,
-        foregroundColor: Colors.black,
-        leading: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: CircleAvatar(
-            radius: 10,
-            backgroundColor: Colors.white,
-          ),
-        ),
-        title: Center(
-            child: Text(
-          'WishLIst',
-          style: TextStyle(
-            fontSize: 25,
-          ),
-        )),
-      ),
+     
       body: Padding(
         padding: const EdgeInsets.all(15),
         child: SingleChildScrollView(
@@ -60,6 +41,36 @@ class _WishListScreenState extends State<WishListScreen> {
           ),
         ),
       ),
+    );
+  }
+}
+
+class wishlistAppbar extends StatelessWidget {
+  const wishlistAppbar({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      backgroundColor: uicolor.themeGrey,
+      elevation: 0,
+      leadingWidth: 0,
+      foregroundColor: Colors.black,
+      leading: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: CircleAvatar(
+          radius: 10,
+          backgroundColor: Colors.white,
+        ),
+      ),
+      title: Center(
+          child: Text(
+        'WishLIst',
+        style: TextStyle(
+          fontSize: 25,
+        ),
+      )),
     );
   }
 }
