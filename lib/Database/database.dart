@@ -31,21 +31,25 @@ List<dynamic> Productgrid = [
     'image': 'assets/headphones/hp1.png',
     'price': '120.00',
     'color': [Colors.black, Colors.blue, Colors.orange, Color(0xff911e31)],
-    'colorCount': '+2'
+    'colorCount': '+2',
+    'cartcount':1,
+    
   },
   {
     'title': 'Woman Sweter',
     'image': 'assets/tshirt/womansweeter.png',
     'price': '120.00',
     'color': [Colors.pink, Colors.purple, Color(0xffe87445), Color(0xff911e31)],
-    'colorCount': '+1'
+    'colorCount': '+1',
+    'cartcount':1
   },
   {
     'title': 'Primium Sofa',
     'image': 'assets/sofa/sofa3.png',
     'price': '680.00',
     'color': [Colors.yellow, Colors.red, Color(0xff911d30), Colors.grey],
-    'colorCount': '+7'
+    'colorCount': '+7',
+    'cartcount':1
   },
   {
     'title': 'Woman Snikers',
@@ -57,7 +61,8 @@ List<dynamic> Productgrid = [
       Color(0xff91471c),
       Color(0xff1d4491)
     ],
-    'colorCount': '+2'
+    'colorCount': '+2',
+    'cartcount':1
   },
   {
     'title': 'Smart Watch',
@@ -69,21 +74,24 @@ List<dynamic> Productgrid = [
       Color(0xff911e31),
       Color(0xff1d4491)
     ],
-    'colorCount': '+3'
+    'colorCount': '+3',
+    'cartcount':1
   },
   {
     'title': 'Man Snikers',
     'image': 'assets/shoes/shoes3.png',
     'price': '90.00',
     'color': [Colors.pink, Colors.deepPurple, Color(0xff90471e), Colors.grey],
-    'colorCount': '+2'
+    'colorCount': '+2',
+    'cartcount':1
   },
   {
     'title': 'Headphones',
     'image': 'assets/headphones2/hp4.png',
     'price': '120.00',
     'color': [Colors.black, Colors.blue, Color(0xff91471c), Colors.orange],
-    'colorCount': '+4'
+    'colorCount': '+4',
+    'cartcount':1
   },
   {
     'title': 'Woman Sweter',
@@ -95,35 +103,40 @@ List<dynamic> Productgrid = [
       Colors.blueGrey,
       Color(0xff1d4491)
     ],
-    'colorCount': '+5'
+    'colorCount': '+5',
+    'cartcount':1
   },
   {
     'title': 'Primium Sofa',
     'image': 'assets/sofa/sofa2.png',
     'price': '680.00',
     'color': [Colors.orange, Colors.grey, Color(0xff91471c), Color(0xff1d4491)],
-    'colorCount': '+6'
+    'colorCount': '+6',
+    'cartcount':1
   },
   {
     'title': 'Woman Snikers',
     'image': 'assets/shoes/shoes3.png',
     'price': '70.00',
     'color': [Colors.yellow, Color(0xff1d4491), Colors.red, Color(0xff911d30)],
-    'colorCount': '+2'
+    'colorCount': '+2',
+    'cartcount':1
   },
   {
     'title': 'Smart Watch',
     'image': 'assets/smartwatch/watch1.png',
     'price': '200.00',
     'color': [Colors.pink, Color(0xff1d4491), Colors.purple, Color(0xffe87445)],
-    'colorCount': '+6'
+    'colorCount': '+6',
+    'cartcount':1
   },
   {
     'title': 'Kids Snikers',
     'image': 'assets/shoes/shoes2.png',
     'price': '90.00',
     'color': [Colors.black, Colors.blue, Color(0xff91471c), Colors.orange],
-    'colorCount': '+9'
+    'colorCount': '+9',
+    'cartcount':1
   },
   {
     'title': 'Woman Headphones',
@@ -135,7 +148,8 @@ List<dynamic> Productgrid = [
       Color(0xff91471c),
       Color(0xff1d4491)
     ],
-    'colorCount': '+1'
+    'colorCount': '+1',
+    'cartcount':1
   },
   {
     'title': 'Woman Sweter',
@@ -147,34 +161,39 @@ List<dynamic> Productgrid = [
       Color(0xff1d4491),
       Color(0xff90471e)
     ],
-    'colorCount': '+3'
+    'colorCount': '+3',
+    'cartcount':1
   },
   {
     'title': 'Primium Sofa',
     'image': 'assets/sofa/sofa4.png',
     'price': '680.00',
     'color': [Colors.yellow, Colors.red, Color(0xff91471c), Color(0xff911d30)],
-    'colorCount': '+4'
+    'colorCount': '+4',
+    'cartcount':1
   },
   {
     'title': 'Woman Snikers',
     'image': 'assets/shoes/shoes5.png',
     'price': '70.00',
     'color': [Colors.orange, Colors.purple, Color(0xff1d4491), Colors.grey],
-    'colorCount': '+2'
+    'colorCount': '+2',
+    'cartcount':1
   },
   {
     'title': 'Smart Watch',
     'image': 'assets/smartwatch/watch1.png',
     'price': '200.00',
     'color': [Colors.blue, Colors.blueGrey, Color(0xff1d4491), Colors.grey],
-    'colorCount': '+7'
+    'colorCount': '+7',
+    'cartcount':1
   },
   {
     'title': 'Man Snikers',
     'image': 'assets/shoes/shoes2.png',
     'price': '90.00',
     'color': [Colors.pink, Color(0xff1d4491), Colors.purple, Color(0xffe87445)],
-    'colorCount': '+2'
+    'colorCount': '+2',
+    'cartcount':1
   },
 ];

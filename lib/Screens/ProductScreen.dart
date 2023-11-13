@@ -205,8 +205,8 @@ class _ProductScreenState extends State<ProductScreen>
               children: [
                 IconButton(
                     onPressed: () {
-                      if (cartItem > 1) {
-                        cartItem--;
+                      if (Productgrid[widget.cindex]['cartcount'] > 1) {
+                        Productgrid[widget.cindex]['cartcount']--;
                         setState(() {});
                       }
                     },
@@ -217,12 +217,12 @@ class _ProductScreenState extends State<ProductScreen>
                           color: Colors.white,
                         ))),
                 Text(
-                  '$cartItem',
+                  '${Productgrid[widget.cindex]['cartcount']}',
                   style: TextStyle(color: Colors.white),
                 ),
                 IconButton(
                     onPressed: () {
-                      cartItem++;
+                      Productgrid[widget.cindex]['cartcount']++;
                       setState(() {});
                     },
                     icon: Padding(
@@ -235,7 +235,10 @@ class _ProductScreenState extends State<ProductScreen>
             ),
           ),
           ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+
+                
+              },
               style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(35)),
