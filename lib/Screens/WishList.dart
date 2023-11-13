@@ -15,11 +15,11 @@ class WishListScreen extends StatefulWidget {
 class _WishListScreenState extends State<WishListScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold( appBar: wishlistAppbar(),
+    return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: centerFlotingActionbar(),
       bottomNavigationBar: bottomNavigationBar(),
-     
+      appBar: wishlistappbar(),
       body: Padding(
         padding: const EdgeInsets.all(15),
         child: SingleChildScrollView(
@@ -43,19 +43,12 @@ class _WishListScreenState extends State<WishListScreen> {
       ),
     );
   }
-}
 
-class wishlistAppbar extends StatelessWidget {
-  const wishlistAppbar({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
+  AppBar wishlistappbar() {
     return AppBar(
       backgroundColor: uicolor.themeGrey,
       elevation: 0,
-      leadingWidth: 0,
+      // leadingWidth: 0,
       foregroundColor: Colors.black,
       leading: Padding(
         padding: const EdgeInsets.all(8.0),
