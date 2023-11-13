@@ -3,7 +3,7 @@ import 'package:ecommerce/Screens/HomeScreen.dart';
 import 'package:ecommerce/Screens/ProductScreen.dart';
 // import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:ecommerce/Screens/CartScreen.dart';
+// import 'package:ecommerce/Screens/CartScreen.dart';
 
 class WishListScreen extends StatefulWidget {
   const WishListScreen({super.key});

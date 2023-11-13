@@ -1,5 +1,6 @@
 import 'package:ecommerce/Database/database.dart';
 import 'package:ecommerce/Screens/CartScreen.dart';
+import 'package:ecommerce/Screens/CategoryScreen.dart';
 import 'package:ecommerce/Screens/ProductScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -391,8 +392,18 @@ class catagory_list extends StatelessWidget {
           return Column(
             children: [
               InkWell(
-                onTap: (){
-                  
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      PageRouteBuilder(
+                          pageBuilder: (_, __, ___) {
+                            return CategoryScreen(
+                              title: CatagoryList[index]['name'],
+                              cindex: index,
+                            );
+                          },
+                          barrierDismissible: true,
+                          transitionDuration: Duration(seconds: 2)));
                 },
                 child: Container(
                   height: 60,
@@ -406,9 +417,12 @@ class catagory_list extends StatelessWidget {
                           fit: BoxFit.cover)),
                 ),
               ),
-              Text(
-                CatagoryList[index]['name'],
-                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+              Hero(
+                tag: 'title$index',
+                child: Text(
+                  CatagoryList[index]['name'],
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+                ),
               )
             ],
           );
