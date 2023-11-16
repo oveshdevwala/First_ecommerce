@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:ecommerce/Database/database.dart';
 import 'package:ecommerce/Screens/CartScreen.dart';
 import 'package:ecommerce/Screens/CategoryScreen.dart';
