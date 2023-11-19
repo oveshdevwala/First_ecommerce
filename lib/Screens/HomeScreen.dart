@@ -30,8 +30,8 @@ FloatingActionButton centerFlotingActionbar() {
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
-  dynamic ontapNavigationIconColor = Colors.grey;
-  var selectedNavigationIndex = 0;
+  // dynamic ontapNavigationIconColor = Colors.grey;
+  // var selectedNavigationIndex = 0;
 
   @override
   Widget build(BuildContext context) {
