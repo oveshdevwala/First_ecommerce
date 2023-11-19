@@ -74,7 +74,7 @@ class bottomNavigationBar extends StatelessWidget {
       padding: EdgeInsets.all(0),
       shape: CircularNotchedRectangle(),
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 22, horizontal: 15),
+        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
         child: Container(
           color: Colors.transparent,
           child: Row(
