@@ -1,11 +1,15 @@
 // ignore_for_file: must_be_immutable
 
+// import 'dart:async';
+
 import 'package:ecommerce/Database/database.dart';
 import 'package:ecommerce/Screens/CartScreen.dart';
 import 'package:ecommerce/Screens/CategoryScreen.dart';
 import 'package:ecommerce/Screens/ProductScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+// import 'package:page_transition/page_transition.dart';
 
 import 'WishList.dart';
 
@@ -25,6 +29,7 @@ FloatingActionButton centerFlotingActionbar() {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  @override
   dynamic ontapNavigationIconColor = Colors.grey;
   var selectedNavigationIndex = 0;
 
@@ -78,7 +83,7 @@ class bottomNavigationBar extends StatelessWidget {
             children: [
               IconButton(
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(
+                  Navigator.pushReplacement(context, MaterialPageRoute(
                     builder: (context) {
                       return HomeScreen();
                     },
@@ -91,7 +96,7 @@ class bottomNavigationBar extends StatelessWidget {
               ),
               IconButton(
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(
+                  Navigator.pushReplacement(context, MaterialPageRoute(
                     builder: (context) {
                       return WishListScreen();
                     },
@@ -161,37 +166,46 @@ class _product_gridState extends State<product_grid> {
       itemBuilder: (context, index) {
         grididnex = Productgrid[index];
 
-        return InkWell(
-          onTap: () {
-            Navigator.push(
-                context,
-                PageRouteBuilder(
-                  pageBuilder: (context, animation, secondaryAnimation) {
-                    return ProductScreen(
-                      cindex: index,
-                      productprice: Productgrid[index]['price'],
-                      productimage: Productgrid[index]['image'],
-                      productname: Productgrid[index]['title'],
-                    );
-                  },
-                  transitionDuration:
-                      Duration(seconds: 1), // Set your desired duration
-                ));
-          },
-          child: productContainer(
-              homelikecount: Productgrid[index]['likecount'],
-              //  grididnex,
-              homecolor: Productgrid[index]['color'],
-              cindex: index,
-              // ontabdelet: () {
-              //   LikeItem.removeWhere(
-              //       (item) => item["title"] == Productgrid[index]['title']);
-              //   setState(() {});
-              // },
-              homecolorcount: Productgrid[index]['colorCount'],
-              homeimage: Productgrid[index]['image'],
-              homeprice: Productgrid[index]['price'],
-              hometitle: Productgrid[index]['title']),
+        return AnimationConfiguration.staggeredGrid(
+          delay: Duration(milliseconds: 250),
+          position: index,
+          duration: const Duration(seconds: 1),
+          columnCount: 1,
+          child: ScaleAnimation(
+            child: FadeInAnimation(
+                child: InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) {
+                        return ProductScreen(
+                          cindex: index,
+                          productprice: Productgrid[index]['price'],
+                          productimage: Productgrid[index]['image'],
+                          productname: Productgrid[index]['title'],
+                        );
+                      },
+                      transitionDuration:
+                          Duration(seconds: 1), // Set your desired duration
+                    ));
+              },
+              child: productContainer(
+                  homelikecount: Productgrid[index]['likecount'],
+                  //  grididnex,
+                  homecolor: Productgrid[index]['color'],
+                  cindex: index,
+                  // ontabdelet: () {
+                  //   LikeItem.removeWhere(
+                  //       (item) => item["title"] == Productgrid[index]['title']);
+                  //   setState(() {});
+                  // },
+                  homecolorcount: Productgrid[index]['colorCount'],
+                  homeimage: Productgrid[index]['image'],
+                  homeprice: Productgrid[index]['price'],
+                  hometitle: Productgrid[index]['title']),
+            )),
+          ),
         );
       },
     );

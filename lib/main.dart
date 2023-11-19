@@ -1,10 +1,5 @@
-// import 'package:ecommerce/Screens/ProductScreen.dart';
-// import 'package:ecommerce/Screens/ProductScreen.dart';
-// import 'package:ecommerce/Screens/CartScreen.dart';
-// import 'package:ecommerce/Screens/CartScreen.dart';
-// import 'package:ecommerce/Screens/CategoryScreen.dart';
-import 'package:ecommerce/Screens/HomeScreen.dart';
-// import 'package:ecommerce/Screens/homeScreen.dart';
+
+import 'package:ecommerce/Screens/splashscreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -21,14 +16,21 @@ void main() {
 //   }
 // }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+ 
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: splashScreen(),
     );
   }
 }

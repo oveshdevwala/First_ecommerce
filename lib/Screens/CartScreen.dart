@@ -265,7 +265,7 @@ class checkoutSection extends StatelessWidget {
                   style: TextStyle(fontSize: 19, color: Colors.grey),
                 ),
                 Text(
-                  '\$245.00  ',
+                  '\$000.00  ',
                   style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
                 ),
               ],
@@ -282,7 +282,7 @@ class checkoutSection extends StatelessWidget {
                   style: TextStyle(fontSize: 19, color: Colors.black),
                 ),
                 Text(
-                  '\$245.00',
+                  '\$000.00',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ],
@@ -299,9 +299,7 @@ class checkoutSection extends StatelessWidget {
                         backgroundColor: uicolor.myorange,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(40))),
-                    onPressed: () {
-                      
-                    },
+                    onPressed: () {},
                     child: Text(
                       'Checkout',
                       style: TextStyle(fontSize: 25),

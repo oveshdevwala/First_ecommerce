@@ -25,15 +25,6 @@ class _WishListScreenState extends State<WishListScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Center(
-                child: Text(
-                  'Product You Liked',
-                  style: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.grey),
-                ),
-              ),
               // product_grid_title(),
               SizedBox(height: 10),
               product_grid_wish()
@@ -48,22 +39,15 @@ class _WishListScreenState extends State<WishListScreen> {
     return AppBar(
       backgroundColor: uicolor.themeGrey,
       elevation: 0,
-      // leadingWidth: 0,
+      leadingWidth: 0,
       foregroundColor: Colors.black,
-      leading: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: CircleAvatar(
-          radius: 10,
-          backgroundColor: Colors.white,
+      title: Center(
+        child: Text(
+          'Product You Liked',
+          style: TextStyle(
+              fontSize: 25, fontWeight: FontWeight.bold, color: Colors.grey),
         ),
       ),
-      title: Center(
-          child: Text(
-        'WishLIst',
-        style: TextStyle(
-          fontSize: 25,
-        ),
-      )),
     );
   }
 }
